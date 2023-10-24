@@ -1,14 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 
-import '../../presentation/views/breaking_news_view.dart';
+// import '../../presentation/views/breaking_news_view.dart';
 
-part 'app_router.gr.dart';
+import 'app_router.gr.dart';
 
 @AutoRouterConfig()
-class AppRouter extends _$AppRouter {
+class AppRouter extends $AppRouter {
   @override
-  List<AutoRoute> get routes =>
-      [AutoRoute(page: BreakingNewsView.page, initial: true)];
+  List<AutoRoute> get routes => [
+        AutoRoute(page: BreakingNewsView.page, initial: true),
+        AutoRoute(page: ArticleDetailsView.page),
+        AutoRoute(page: SavedArticlesView.page),
+      ];
 }
 
 final appRouter = AppRouter();

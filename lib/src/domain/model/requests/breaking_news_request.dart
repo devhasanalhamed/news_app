@@ -10,7 +10,7 @@ class BreakingNewsRequest {
 
   BreakingNewsRequest({
     this.apiKey = defaultApiKey,
-    this.country = 'sa',
+    this.country = 'us',
     this.category = 'general',
     this.page = 1,
     this.pageSize = defaultPageSize,

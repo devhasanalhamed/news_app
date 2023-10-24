@@ -4,9 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import 'package:ionicons/ionicons.dart';
+import '../../config/router/app_router.dart';
+import '../../config/router/app_router.gr.dart';
 import '../../domain/model/article.dart';
-import '../../utils/extenstions/scroll_controller.dart';
+import '../../utils/extensions/scroll_controller.dart';
 import '../cubits/remote_articles_cubit.dart';
+import '../widgets/article_widget.dart';
 
 @RoutePage()
 class BreakingNewsView extends HookWidget {
@@ -36,6 +39,15 @@ class BreakingNewsView extends HookWidget {
           'Daily News',
           style: TextStyle(color: Colors.black),
         ),
+        actions: [
+          GestureDetector(
+            onTap: () => appRouter.push(const SavedArticlesView()),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 14),
+              child: Icon(Ionicons.bookmark, color: Colors.black),
+            ),
+          ),
+        ],
       ),
       body: BlocBuilder<RemoteArticlesCubit, RemoteArticlesState>(
         builder: (context, state) {
@@ -68,7 +80,12 @@ class BreakingNewsView extends HookWidget {
       slivers: [
         SliverList(
           delegate: SliverChildBuilderDelegate(
-            (context, index) => ArticleWidget(article: articles[index]),
+            (context, index) => ArticleWidget(
+              article: articles[index],
+              onArticlePressed: (e) => appRouter.push(
+                ArticleDetailsView(article: e),
+              ),
+            ),
             childCount: articles.length,
           ),
         ),
@@ -78,7 +95,7 @@ class BreakingNewsView extends HookWidget {
               padding: EdgeInsets.only(top: 14, bottom: 32),
               child: CircularProgressIndicator(),
             ),
-          ),
+          )
       ],
     );
   }

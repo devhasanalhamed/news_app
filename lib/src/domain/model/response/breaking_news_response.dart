@@ -19,12 +19,16 @@ class BreakingNewsResponse extends Equatable {
     return BreakingNewsResponse(
       status: map['status'] as String,
       totalResults: map['totalResults'] as int,
-      articles: List<Article>.from((map['articles'] as List<int>).map<Article>((x) => Article.fromMap(x as Map<String,dynamic>),),),
+      articles: List<Article>.from(
+        (map['articles'] as List).map<Article>(
+          (x) => Article.fromMap(x as Map<String, dynamic>),
+        ),
+      ),
     );
   }
 
-
-  factory BreakingNewsResponse.fromJson(String source) => BreakingNewsResponse.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory BreakingNewsResponse.fromJson(String source) =>
+      BreakingNewsResponse.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   bool get stringify => true;

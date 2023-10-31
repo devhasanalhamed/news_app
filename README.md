@@ -6,7 +6,7 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
-![1-portrait](https://github.com/devhasanalhamed/news_app/assets/81860602/67e5bdea-06a4-4aed-9a93-aea92f463089 | width=200)
+![1-portrait](https://github.com/devhasanalhamed/news_app/assets/81860602/67e5bdea-06a4-4aed-9a93-aea92f463089 =250x250)
 
 ![2-portrait](https://github.com/devhasanalhamed/news_app/assets/81860602/120fe0f9-5668-4138-9ba8-366ef1d64412)
 
